@@ -1,5 +1,5 @@
 window.onload=function(){
-	var 
+	  var 
     canvas=document.querySelector('#canvas'),
     ctx=canvas.getContext('2d'),
     canvas2=document.querySelector('#canvas2'),
@@ -106,17 +106,7 @@ window.onload=function(){
              localStorage.removeItem('x')
        }
        
-       fanhui.onclick=function(){
-         for(var i in qizi){
-           var newqizi = {};
-           if(i != (x+'_'+y)){
-              newqizi[i] = qizi[i]
-           }
-         }
-         qizi = newqizi;
-         flag = !flag;
-         ctx2.clearRect(x*40+20.5-18,y*40+20.5-18,36,36);
-       }
+       
      }
 
 	var xy2id=function(x,y){
@@ -175,7 +165,51 @@ window.onload=function(){
     flag=true;
     ctx2.clearRect(0,0,600,600);
   }
-
+   fanhui.onclick=function(){
+    huaqipan();
+    var colorarr=[];
+        var weizhiarr=[];
+        data=JSON.parse(localStorage.data);
+        if(JSON.stringify(data)==0){
+            back.onclick=null;
+            return;
+        }
+        for(var i in data){
+            weizhiarr.push(i);
+            colorarr.push(data[i]);
+        }
+        weizhiarr.pop();
+        colorarr.pop();
+        for(var i=0;i<colorarr.length;i++){
+            var x=weizhiarr[i].split("_")[0];
+            var y=weizhiarr[i].split("_")[1];
+            luozi(x,y,(colorarr[i]=='black')?true:false);
+            if(((colorarr[i]=='black')?true:false)){
+               localStorage.x="1";
+            }else{
+                localStorage.removeItem("x");
+            }
+        }
+        //更新localStorage
+        data={};
+        for(var i=0;i<weizhiarr.length;i++){
+            var x=weizhiarr[i].split("_")[0];
+            var y=weizhiarr[i].split("_")[1];
+            data[x+'_'+y]=colorarr[i];
+        }
+        localStorage.data=JSON.stringify(data);
+        location.reload();
+    
+         // for(var i in qizi){
+         //   var newqizi = {};
+         //   if(i != (x+'_'+y)){
+         //      newqizi[i] = qizi[i]
+         //   }
+         // }
+         // qizi = newqizi;
+         // flag = !flag;
+         // ctx2.clearRect(x*40+20.5-18,y*40+20.5-18,36,36);
+       }
 
 
 

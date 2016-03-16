@@ -1,7 +1,6 @@
 body{
 	margin:0;
 	padding: 0;
-	overflow: hidden;
 }
 #canvas{
 	display: block;
@@ -34,7 +33,11 @@ body{
 	top:45%;
 	background:rgba(228,160,107,0.5);
 }
-
+.btn{
+    line-height: auto;
+    font-size: 2em;
+    font-weight: 400;
+}
 
 
 .box{

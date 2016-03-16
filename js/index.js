@@ -5,6 +5,7 @@ window.onload=function(){
     canvas2=document.querySelector('#canvas2'),
     ctx2=canvas2.getContext('2d'),
     row=15,
+    num=0,
     z=[140.5,460.5],//棋盘星点位子
     qizi={},//所有棋子数据
     flag=localStorage.x?false:true;//标识该谁落子
@@ -57,6 +58,10 @@ window.onload=function(){
    }
 
   canvas2.onclick=function(e){
+
+
+    
+
        var x=Math.round( (e.offsetX-20.5)/40);
        var y=Math.round( (e.offsetY-20.5)/40);
 
@@ -170,4 +175,73 @@ window.onload=function(){
     flag=true;
     ctx2.clearRect(0,0,600,600);
   }
+
+
+
+
+    /*var canvas3=document.querySelector("#canvas3");
+    ctx=canvas3.getContext('2d');
+
+    var drawClock=function(){
+      
+      
+      ctx.clearRect(0,0,200,200);
+        //保存一干净状态
+        ctx.save();
+      //移动原点至圆心
+      ctx.translate(100,100);
+        //表盘
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWidth=8;
+        ctx.strokeStyle='blue';
+        ctx.arc(0,0,90,0,Math.PI*2);
+        ctx.stroke();
+        ctx.restore();
+        
+        //刻度
+        ctx.save();
+        ctx.beginPath();
+      ctx.lineCap='round';//圆角
+      for(var i=1;i<61;i++){
+        ctx.rotate(Math.PI/30);
+        ctx.beginPath();
+        if(i%5==0){
+          ctx.moveTo(68,0);
+          ctx.lineWidth=4;
+        }else{
+          ctx.moveTo(72,0);
+          ctx.lineWidth=2;
+        }
+        ctx.lineTo(78,0);
+        ctx.stroke();
+      }
+      ctx.restore();
+      //秒针
+      ctx.save();
+      var sec=Math.PI/30*num;
+      ctx.rotate(sec);
+      ctx.beginPath();
+      // ctx.rotate(x);
+      ctx.strokeStyle='red';
+      ctx.lineCap='round';
+      ctx.lineWidth=2;
+      ctx.moveTo(0,10);
+      ctx.lineTo(0,-50);
+      ctx.moveTo(4,-54);
+      ctx.arc(0,-54,4,0,Math.PI*2);
+      ctx.moveTo(0,-58);
+      ctx.lineTo(0,-66)
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.fillStyle='#f00';
+      ctx.arc(0,0,6,0,Math.PI*2);
+      ctx.fill();
+      //复原第一次的
+      ctx.restore();
+     
+    }
+    requestAnimationFrame(drawClock);*/
 }

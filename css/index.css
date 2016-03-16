@@ -24,13 +24,13 @@ body{
 }
 #shuaxin{
 	position: absolute;
-	left: 5%;
+	right: 10%;
 	top:35%;
 	background:rgba(228,160,107,0.5);
 }
 #fanhui{
 	position: absolute;
-	left: 5%;
+	right: 10%;
 	top:45%;
 	background:rgba(228,160,107,0.5);
 }
@@ -55,7 +55,7 @@ body{
     content:"";
     background:url(../image/222.jpg);
     background-size:1024px 100%;
-    animation:before 500s linear infinite;
+    animation:before 160s linear infinite;
 }
 .container::after{
     position: absolute;
@@ -64,7 +64,7 @@ body{
     content:"";
     background:url(../image/333.jpg);
     background-size:1024px 100%;
-    animation:after 500s linear infinite;
+    animation:after 160s linear infinite;
 }
 @-webkit-keyframes before{
     0% {
